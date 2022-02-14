@@ -1,0 +1,66 @@
+Programming
+#1
+k = input()
+
+to_int_L = [int(x) for x in L]
+
+def checkConsecutive(my_list):
+    is_sequence = sorted(my_list) == list(range(min(my_list), max(my_list)+1))
+    j = 0
+    for i in my_list:
+        if is_sequence:
+            j += 1
+        
+    if k == j:
+        print("YES")
+    else:
+        print("NO")
+      
+print(checkConsecutive(to_int_L))
+
+
+
+#2
+A = list(input().split(','))
+B = list(input().split(','))
+
+to_int_A = [int(x) for x in A]
+to_int_B = [int(x) for x in B]
+
+final_list = to_int_A + to_int_B
+
+print(final_list)
+def sorter(data_list, new_list = []):
+    while data_list:
+        min = data_list[0]
+        for x in data_list: 
+            if x < min:
+                min = x
+        new_list.append(min)
+        data_list.remove(min)
+    return new_list
+
+print(sorter(final_list))
+
+
+
+
+
+
+
+SQL TASK
+
+#1
+SELECT Role, Max(Salary) as "Max Salary" From Employees Group By Role;
+
+#2
+SELECT Name, Surname, Role, Max(Salary) From Employees Group By Role;
+
+#3
+SELECT Role, Sum(Salary) From Employees Where Salary > 300 and Salary <600 group by Role;
+
+#4
+SELECT PriceList, count(Product) as DublicatesCount From PriceList Group By PriceList
+
+#5
+SELECT PriceList.Name as "PriceList", Count(PriceListProducts.Name) as "DublicatesCount" From PriceList INNER JOIN PriceListProduct on PriceList.PriceListId=PriceListProducts.PriceListId group by PriceListProducts.Name
